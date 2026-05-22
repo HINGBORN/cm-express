@@ -1,7 +1,9 @@
+
 /* =========================================
    ARQUIVO: style.css
 ========================================= */
 
+/* Limita descrições longas a duas linhas dentro de um card */
 .line-clamp-2 { 
     display: -webkit-box; 
     -webkit-line-clamp: 2; 
@@ -9,10 +11,12 @@
     overflow: hidden; 
 }
 
+/* Habilita rolagem suave para navegação interna e âncoras */
 html { 
     scroll-behavior: smooth; 
 }
 
+/* Estilos iniciais para esconder e animar o bloco de especificações */
 .specs-transition { 
     transition: max-height 0.4s ease-in-out, opacity 0.3s ease-in-out, padding 0.3s ease-in-out; 
     max-height: 0; 
@@ -22,6 +26,7 @@ html {
     padding-bottom: 0; 
 }
 
+/* Estado aberto do painel de especificações, exibindo o conteúdo com animação */
 .specs-open { 
     max-height: 600px; 
     opacity: 1; 
@@ -29,13 +34,14 @@ html {
     padding-bottom: 1.25rem; 
 }
 
-/* Efeito de pulso suave para os botões gigantes */
+/* Animação de pulso usada para destacar os botões principais da página */
 @keyframes softPulse {
     0% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.7); }
     70% { box-shadow: 0 0 0 20px rgba(245, 158, 11, 0); }
     100% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0); }
 }
 
+/* Aplica a animação de pulso aos botões com classe btn-mega */
 .btn-mega { 
     animation: softPulse 2s infinite; 
 }

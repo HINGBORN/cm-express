@@ -1,12 +1,17 @@
 /* =========================================
    ARQUIVO: script.js
    Projeto Básico (Estático) - Com Carrossel Automático
+   Este script controla:
+   - a alternância das especificações de cada produto
+   - o carrossel de imagens dos cards
+   - a busca pelos produtos
+   - o modo claro/escuro
 ========================================= */
 
-// Variável global para armazenar as fotos de cada card
+// Variável global para armazenar o estado dos carrosséis de imagens
 window.carrosseis = {};
 
-// Função de abrir/fechar as especificações
+// Alterna a exibição do painel de especificações do produto
 function toggleSpecs(id) { 
     document.getElementById(id).classList.toggle('specs-open'); 
 }
@@ -28,7 +33,7 @@ window.mudarFoto = function(id, direcao) {
     const imgElement = document.getElementById(`img-${id}`);
     const contadorElement = document.getElementById(`contador-${id}`);
 
-    // Animação de fade
+    // Pequena animação de transição ao trocar de imagem
     imgElement.style.opacity = '0.5';
     setTimeout(() => {
         imgElement.src = carrossel.imagens[carrossel.indexAtual];
@@ -43,7 +48,8 @@ window.mudarFoto = function(id, direcao) {
 document.addEventListener('DOMContentLoaded', () => {
     
     // ----------------------------------------------------
-    // MÁGICA DO CARROSSEL: Cria os botões automaticamente
+    // CARROSSEL DE PRODUTOS
+    // Para cada card que tiver múltiplas fotos, adiciona controles e contador
     // ----------------------------------------------------
     document.querySelectorAll('.product-card').forEach((card, index) => {
         // Acha a imagem que tem o "data-fotos"
@@ -75,11 +81,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Inicia os ícones
+    // Inicializa os ícones da biblioteca Lucide
     lucide.createIcons();
 
     // ----------------------------------------------------
     // Sistema de Busca
+    // Filtra os cards com base no texto digitado pelo usuário
     // ----------------------------------------------------
     const searchInput = document.getElementById('searchInput');
     const msgVazia = document.getElementById('mensagem-vazia');
