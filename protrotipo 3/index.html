@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Achadinhos da Shopee do Theus</title>
+    
+    <meta property="og:title" content="Achadinhos da Shopee do Theus">
+    <meta property="og:description" content="Seleção premium com os melhores produtos testados e aprovados. Compra 100% segura.">
+    <meta property="og:image" content="logo.jpg">
+    <meta property="og:type" content="website">
+
+    <!-- Arquivo de estilos CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Framework Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config = { darkMode: 'class', }</script>
+    
+    <!-- Lógica de iniciar no modo claro ou escuro -->
+    <script>
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark')
+        }
+    </script>
+    
+    <!-- Ícones Lucide -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-slate-50 dark:bg-slate-950 font-sans text-slate-900 dark:text-slate-100 antialiased selection:bg-amber-400 selection:text-slate-900 transition-colors duration-300">
+
+    <div class="bg-gradient-to-r from-amber-600 to-amber-500 text-white text-center py-2 px-4 text-sm font-medium z-50 relative">
+        <span class="animate-pulse inline-block mr-1">🔥</span> 
+        Aproveite: Resgate seus cupons de <b>Frete Grátis</b> direto na loja!
+    </div>
+
+    <header class="bg-slate-900 text-white sticky top-0 z-40 shadow-lg border-b border-amber-500/20">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            
+            <div class="flex items-center gap-4">
+                <img src="logo.jpg" alt="Logo" class="w-20 h-20 sm:w-24 sm:h-24 rounded-full object-cover shadow-md border-2 border-slate-700 bg-white">
+                <div>
+                    <h1 class="text-2xl sm:text-3xl font-black tracking-wide text-white">ACHADINHOS<br><span class="text-amber-400">DA SHOPEE</span></h1>
+                    <p class="text-sm text-slate-300 italic mt-1">Sua Compra, Mais Rápida</p>
+                </div>
+            </div>
+            
+            <!-- BOTÃO DARK MODE CORRIGIDO -->
+            <div class="flex items-center gap-4">
+                <button id="themeToggle" class="p-3 rounded-full bg-slate-800 text-amber-400 hover:bg-slate-700 transition-colors focus:outline-none ring-2 ring-transparent focus:ring-amber-400">
+                    <span class="block dark:hidden"><i data-lucide="moon" class="w-6 h-6"></i></span>
+                    <span class="hidden dark:block"><i data-lucide="sun" class="w-6 h-6"></i></span>
+                </button>
+            </div>
+            
+        </div>
+    </header>
+
+    <section class="bg-slate-900 text-white py-16 md:py-24 relative overflow-hidden">
+        <div class="absolute top-0 right-0 -mr-20 -mt-20 w-64 h-64 rounded-full bg-amber-500/10 blur-3xl"></div>
+        
+        <div class="container mx-auto px-4 text-center relative z-10">
+            <span class="text-amber-400 font-semibold tracking-wider uppercase text-sm mb-4 block">Seleção Premium de Achadinhos</span>
+            <h2 class="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight">
+                Os melhores produtos, <br/>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-200 to-amber-500">com a segurança que você exige.</span>
+            </h2>
+            <p class="text-slate-300 text-lg md:text-xl max-w-2xl mx-auto mb-10">
+                Pesquise por produtos testados e avaliados. Clique no botão abaixo para acessar nosso catálogo oficial e fechar seu pedido.
+            </p>
+            
+            <div class="flex justify-center mt-8">
+                <a href="https://collshp.com/ofertasdotheus?view=storefront" target="_blank" class="btn-mega group inline-flex items-center justify-center gap-4 bg-gradient-to-r from-amber-400 to-amber-500 text-slate-900 px-10 py-5 rounded-full font-black text-xl md:text-2xl transition-transform hover:scale-105 w-full sm:w-auto shadow-2xl">
+                    <i data-lucide="shopping-bag" class="w-8 h-8"></i> 
+                    ACESSAR LOJA OFICIAL
+                    <i data-lucide="arrow-right" class="w-6 h-6 group-hover:translate-x-2 transition-transform"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="produtos" class="py-16 bg-slate-50 dark:bg-slate-950 transition-colors min-h-screen">
+        <div class="container mx-auto px-4">
+            
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white mb-4">Veja as Especificações</h2>
+                <p class="text-slate-500 mb-6">Ficou com dúvida sobre algum item? Pesquise abaixo e veja os detalhes.</p>
+                
+                <div class="max-w-xl mx-auto relative">
+                    <i data-lucide="search" class="absolute left-4 top-1/2 transform -translate-y-1/2 text-slate-400 w-5 h-5"></i>
+                    <input type="text" id="searchInput" placeholder="Qual produto você quer ver os detalhes?" 
+                        class="w-full bg-white dark:bg-slate-900 border-2 border-slate-200 dark:border-slate-800 focus:border-amber-500 rounded-full py-4 pl-12 pr-4 outline-none transition-colors text-slate-700 dark:text-slate-200 shadow-sm font-medium text-lg">
+                </div>
+            </div>
+
+            <!-- GRID DOS PRODUTOS ESTÁTICOS -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16" id="products-grid">
+                
+                <!-- PRODUTO 1 (Com várias fotos) -->
+                <div class="product-card bg-white dark:bg-slate-900 rounded-2xl overflow-hidden shadow-sm border border-slate-100 dark:border-slate-800 flex flex-col relative" data-search="fone de ouvido bluetooth pro audio">
+                    <div class="relative h-64 overflow-hidden bg-slate-100 group">
+                        <div class="absolute top-2 left-2 bg-indigo-600 text-white text-xs font-bold px-3 py-1 rounded-full z-10 shadow-sm">Mais Vendido</div>
+                        
+                        <!-- Coloque os links separados por vírgula no data-fotos -->
+                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600&q=80" 
+                             data-fotos="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600&q=80, https://images.unsplash.com/photo-1618366712010-f4ae9c647dcb?w=600&q=80" 
+                             class="w-full h-full object-cover transition-opacity duration-300">
+                    </div>
+
+                    <div class="p-5 flex flex-col flex-grow">
+                        <h3 class="font-bold text-lg text-slate-900 dark:text-white mb-2 line-clamp-2 leading-tight">Fone de Ouvido Bluetooth Pro Cancelamento Ruído</h3>
+                        <div class="flex items-baseline gap-2 mb-4">
+                            <span class="text-2xl font-black text-amber-500">R$ 55,90</span>
+                            <span class="text-sm text-slate-400 line-through">R$ 99,90</span>
+                        </div>
+                        <div class="mt-auto">
+                            <button onclick="toggleSpecs('specs-1')" class="w-full bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 font-bold py-3 rounded-xl flex items-center justify-center gap-2 border-2 border-transparent hover:border-slate-300 transition-all text-sm">
+                                <i data-lucide="list-collapse" class="w-4 h-4"></i> Ver Detalhes
+                            </button>
+                        </div>
+                    </div>
+                    <div id="specs-1" class="specs-transition bg-slate-50 dark:bg-slate-800/50 border-t border-slate-100 dark:border-slate-800 px-5">
+                        <ul class="text-slate-600 dark:text-slate-400 text-sm space-y-2 mb-2 font-medium pt-2">
+                            <li>• Cancelamento de ruído ativo</li>
+                            <li>• Bateria com duração de até 24h</li>
+                            <li>• Som estéreo 3D de alta qualidade</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- PRODUTO 2 (Com várias fotos) -->
+                <div class="product-card bg-white dark:bg-slate-900 rounded-2xl overflow-hidden shadow-sm border border-slate-100 dark:border-slate-800 flex flex-col relative" data-search="mesa de centro moderna decoracao sala madeira">
+                    <div class="relative h-64 overflow-hidden bg-slate-100 group">
+                        <div class="absolute top-2 left-2 bg-indigo-600 text-white text-xs font-bold px-3 py-1 rounded-full z-10 shadow-sm">Decoração</div>
+                        
+                        <img src="https://images.unsplash.com/photo-1533090481720-856c6e3c1fdc?w=600&q=80" 
+                             data-fotos="https://images.unsplash.com/photo-1533090481720-856c6e3c1fdc?w=600&q=80, https://images.unsplash.com/photo-1499933374294-4584851497cc?w=600&q=80" 
+                             class="w-full h-full object-cover transition-opacity duration-300">
+                    </div>
+
+                    <div class="p-5 flex flex-col flex-grow">
+                        <h3 class="font-bold text-lg text-slate-900 dark:text-white mb-2 line-clamp-2 leading-tight">Mesa de Centro Moderna Minimalista Madeira</h3>
+                        <div class="flex items-baseline gap-2 mb-4">
+                            <span class="text-2xl font-black text-amber-500">R$ 149,00</span>
+                            <span class="text-sm text-slate-400 line-through">R$ 220,00</span>
+                        </div>
+                        <div class="mt-auto">
+                            <button onclick="toggleSpecs('specs-2')" class="w-full bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 font-bold py-3 rounded-xl flex items-center justify-center gap-2 border-2 border-transparent hover:border-slate-300 transition-all text-sm">
+                                <i data-lucide="list-collapse" class="w-4 h-4"></i> Ver Detalhes
+                            </button>
+                        </div>
+                    </div>
+                    <div id="specs-2" class="specs-transition bg-slate-50 dark:bg-slate-800/50 border-t border-slate-100 dark:border-slate-800 px-5">
+                        <ul class="text-slate-600 dark:text-slate-400 text-sm space-y-2 mb-2 font-medium pt-2">
+                            <li>• Feita em madeira de reflorestamento</li>
+                            <li>• Design minimalista e elegante</li>
+                            <li>• Dimensões: 90cm x 50cm x 45cm</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- PRODUTO 3 (Com uma foto só - O JS esconde as setas automaticamente) -->
+                <div class="product-card bg-white dark:bg-slate-900 rounded-2xl overflow-hidden shadow-sm border border-slate-100 dark:border-slate-800 flex flex-col relative" data-search="luminaria porta fotos led quarto varal">
+                    <div class="relative h-64 overflow-hidden bg-slate-100 group">
+                        <div class="absolute top-2 left-2 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full z-10 shadow-sm">Oferta Relâmpago</div>
+                        
+                        <img src="https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?w=600&q=80" 
+                             data-fotos="https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?w=600&q=80" 
+                             class="w-full h-full object-cover transition-opacity duration-300">
+                    </div>
+
+                    <div class="p-5 flex flex-col flex-grow">
+                        <h3 class="font-bold text-lg text-slate-900 dark:text-white mb-2 line-clamp-2 leading-tight">Luminária Porta Fotos Varal de LED</h3>
+                        <div class="flex items-baseline gap-2 mb-4">
+                            <span class="text-2xl font-black text-amber-500">R$ 29,99</span>
+                            <span class="text-sm text-slate-400 line-through">R$ 45,00</span>
+                        </div>
+                        <div class="mt-auto">
+                            <button onclick="toggleSpecs('specs-3')" class="w-full bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 font-bold py-3 rounded-xl flex items-center justify-center gap-2 border-2 border-transparent hover:border-slate-300 transition-all text-sm">
+                                <i data-lucide="list-collapse" class="w-4 h-4"></i> Ver Detalhes
+                            </button>
+                        </div>
+                    </div>
+                    <div id="specs-3" class="specs-transition bg-slate-50 dark:bg-slate-800/50 border-t border-slate-100 dark:border-slate-800 px-5">
+                        <ul class="text-slate-600 dark:text-slate-400 text-sm space-y-2 mb-2 font-medium pt-2">
+                            <li>• Fio de fada com 3 metros</li>
+                            <li>• Acompanha 20 pregadores de LED</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- PRODUTO 4 -->
+                <div class="product-card bg-white dark:bg-slate-900 rounded-2xl overflow-hidden shadow-sm border border-slate-100 dark:border-slate-800 flex flex-col relative" data-search="smartwatch esportivo relogio monitor cardiaco m3">
+                    <div class="relative h-64 overflow-hidden bg-slate-100 group">
+                        <div class="absolute top-2 left-2 bg-indigo-600 text-white text-xs font-bold px-3 py-1 rounded-full z-10 shadow-sm">Tecnologia</div>
+                        <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=600&q=80" 
+                             data-fotos="https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=600&q=80" 
+                             class="w-full h-full object-cover transition-opacity duration-300">
+                    </div>
+
+                    <div class="p-5 flex flex-col flex-grow">
+                        <h3 class="font-bold text-lg text-slate-900 dark:text-white mb-2 line-clamp-2 leading-tight">Smartwatch Esportivo M3 Monitor Cardíaco</h3>
+                        <div class="flex items-baseline gap-2 mb-4">
+                            <span class="text-2xl font-black text-amber-500">R$ 69,90</span>
+                            <span class="text-sm text-slate-400 line-through">R$ 120,00</span>
+                        </div>
+                        <div class="mt-auto">
+                            <button onclick="toggleSpecs('specs-4')" class="w-full bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 font-bold py-3 rounded-xl flex items-center justify-center gap-2 border-2 border-transparent hover:border-slate-300 transition-all text-sm">
+                                <i data-lucide="list-collapse" class="w-4 h-4"></i> Ver Detalhes
+                            </button>
+                        </div>
+                    </div>
+                    <div id="specs-4" class="specs-transition bg-slate-50 dark:bg-slate-800/50 border-t border-slate-100 dark:border-slate-800 px-5">
+                        <ul class="text-slate-600 dark:text-slate-400 text-sm space-y-2 mb-2 font-medium pt-2">
+                            <li>• Monitoramento de batimentos cardíacos</li>
+                            <li>• Resistente ao suor (Ideal p/ academia)</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div> <!-- FIM DO GRID DE PRODUTOS -->
+            
+            <!-- MENSAGEM BUSCA VAZIA -->
+            <div id="mensagem-vazia" class="hidden text-center py-4 w-full">
+                <i data-lucide="frown" class="w-16 h-16 mx-auto text-slate-300 mb-4"></i>
+                <h3 class="text-2xl font-bold text-slate-700 dark:text-slate-300 mb-2">Poxa, não achamos isso por aqui.</h3>
+                <p class="text-slate-500 mb-2">Mas temos milhares de outros itens esperando por você.</p>
+            </div>
+
+            <div class="flex flex-col items-center justify-center border-t-2 border-dashed border-slate-300 dark:border-slate-700 pt-12 mt-4">
+                <h3 class="text-xl md:text-2xl font-bold mb-6 text-center">Gostou de algum produto ou quer ver mais?</h3>
+                <a href="https://collshp.com/ofertasdotheus?view=storefront" target="_blank" class="btn-mega group inline-flex items-center justify-center gap-4 bg-gradient-to-r from-orange-500 to-amber-500 text-white px-10 py-6 rounded-3xl font-black text-2xl transition-transform hover:scale-105 w-full sm:w-auto shadow-xl">
+                    <i data-lucide="store" class="w-8 h-8"></i> 
+                    ENTRAR NA LOJA
+                    <i data-lucide="external-link" class="w-6 h-6"></i>
+                </a>
+                <p class="text-sm text-slate-500 mt-4"><i data-lucide="lock" class="w-3 h-3 inline"></i> Ambiente 100% seguro da Shopee</p>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="bg-slate-950 text-slate-400 py-8 border-t border-slate-800 text-center">
+        <p class="text-sm mb-2 font-bold">Achadinhos do Theus</p>
+        <p class="text-xs">© 2024. As vendas são redirecionadas com segurança para a plataforma oficial.</p>
+    </footer>
+
+    <!-- BOTÃO WHATSAPP -->
+    <a href="https://wa.me/5511999999999?text=Olá,%20Theus!%20Vim%20pelo%20site%20e%20preciso%20de%20ajuda." target="_blank" class="fixed bottom-6 right-6 bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform z-50 flex items-center border-2 border-white">
+        <i data-lucide="message-circle" class="w-8 h-8"></i>
+    </a>
+
+    <!-- Arquivo de JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
